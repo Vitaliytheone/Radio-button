@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
+import { RadioStyled, Input, Span } from "./styles";
 
 type TRadio = {
     label: string;
@@ -9,11 +10,11 @@ type TRadio = {
 
 const Radio = ({ className, variant = "left", label, name, color = "", ...props }: TRadio) => {
     return (
-        <label className={className}>
+        <RadioStyled className={className}>
             {label}
-            <input id={name} name={name} type="radio" />
-            <span></span>
-        </label>
+            <Input id={name} name={name} type="radio" />
+            <Span></Span>
+        </RadioStyled>
     );
 };
 
