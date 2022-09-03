@@ -11,9 +11,9 @@ function App() {
     return (
         <>
             <Label>Radio left variant</Label>
-            <Radio label="checkbox 1" />
+            <Radio label="checkbox 1" variant="left" />
             <Label>Radio right variant</Label>
-            <Radio label="checkbox 2" />
+            <Radio label="checkbox 2" variant="right" />
         </>
     );
 }

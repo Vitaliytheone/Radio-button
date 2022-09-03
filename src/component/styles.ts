@@ -1,13 +1,18 @@
 import styled from 'styled-components'
+import { TVariant } from './radio';
+
+const getBoxPosition = (variant: TVariant) => {
+    return variant === 'left' ? 'left: 0' : 'right: -28px;'
+}
 
 export const Span = styled.span``;
 
 export const Input = styled.input``;
 
-export const RadioStyled = styled.label<{$color: string}>`
-    display: block;
+export const RadioStyled = styled.label<{$color: string, $variant: TVariant}>`
+    display: inline-block;
     position: relative;
-    padding-left: 28px;
+    padding-left: ${({$variant}) => $variant === 'left' ? '28px' : 0 };
     font-weight: 400;
     font-size: 18px;
     cursor: pointer;
@@ -30,12 +35,12 @@ export const RadioStyled = styled.label<{$color: string}>`
 
     ${Span} {
         position: absolute;
-        left: 0;
         height: 20px;
         width: 20px;
         background-color: #fff;
         border-radius: 50%;
         border: 1px solid ${({$color}) => $color };
+        ${({$variant}) => getBoxPosition($variant) };
 
         &:after {
             content: "";

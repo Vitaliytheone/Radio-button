@@ -1,18 +1,19 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { RadioStyled, Input, Span } from "./styles";
 
+export type TVariant = "left" | "right";
+
 type TRadio = {
-    label: string;
+    label?: React.ReactNode;
     className?: string;
-    variant?: "left" | "rigth";
+    variant?: TVariant;
     color?: string;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Radio = ({ className, variant = "left", label, name, color = "#2F46B0", ...props }: TRadio) => {
     return (
-        <RadioStyled className={className} $color={color}>
+        <RadioStyled className={className} $color={color} $variant={variant}>
             {label}
-            <Input id={name} name={name} type="radio" onClick={props.onClick} />
+            <Input {...props} id={name} type="radio" />
             <Span></Span>
         </RadioStyled>
     );
